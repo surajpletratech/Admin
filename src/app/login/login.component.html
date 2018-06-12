@@ -1,0 +1,23 @@
+
+<form [formGroup]="myForm" class="example-form">
+         
+    
+    <mat-form-field class="example-full-width"> 
+
+        <input matInput placeholder="Email" [formControl]="emailCtrl">
+        <mat-error *ngIf="emailCtrl.invalid">
+          Please enter a valid email address
+        </mat-error>
+
+     </mat-form-field>
+     
+     <mat-form-field class="example-full-width">
+          <input matInput placeholder="password" type="password" [formControl]="passwordCtrl">
+   
+          <mat-error *ngIf="passwordCtrl.invalid">
+            Please enter a valid Password
+          </mat-error>
+     </mat-form-field>
+     <p>Validation status: {{ myForm.status }}</p>
+     <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="gotoProfile()">Login</button>
+  </form>

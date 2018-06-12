@@ -1,0 +1,42 @@
+<div style="text-align:center">
+    <h1>Login</h1>
+  </div>  
+  
+  
+    <form [formGroup]="signUpFrom" class="example-form">
+        <mat-form-field class="example-full-width"> 
+
+            <input matInput placeholder="Enter Name" [formControl]="userName">
+            <mat-error *ngIf="userName.invalid">
+              Please enter a valid email address
+            </mat-error>
+    
+         </mat-form-field>
+         <mat-form-field class="example-full-width"> 
+
+            <input matInput placeholder="Enter Name" [formControl]="email">
+            <mat-error *ngIf="email.invalid && email.touched">
+              Please enter a valid email address
+            </mat-error>
+    
+         </mat-form-field>
+         <mat-form-field class="example-full-width"> 
+
+            <input matInput placeholder="Enter Name" [formControl]="mobile">
+            <mat-error *ngIf="mobile.invalid">
+              Please enter a valid email address
+            </mat-error>
+    
+         </mat-form-field>
+         
+         <mat-form-field class="example-full-width">
+              <input matInput placeholder="password" type="password" [formControl]="password">
+       
+              <mat-error *ngIf="password.invalid">
+                Please Enter Valid Password
+              </mat-error>
+         </mat-form-field>
+         <p>Validation status: {{ signUpForm.status }}</p>
+         <button mat-raised-button color="primary" [disabled]="signUpForm">SignUp</button>
+    </form>
+  
