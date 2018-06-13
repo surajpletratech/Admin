@@ -1,4 +1,7 @@
-export interface login{
+export interface User{
+    uid:string,
+    username:string,
+    mobile:string,
     email:string,
     password:string
 }
@@ -13,4 +16,4 @@ export interface signup{
 export interface forgetpassword{
     email:string,
     newPassword:string
-}
+}   
