@@ -22,14 +22,14 @@ export class SignupComponent implements OnInit {
   onSubmit(){
     console.log('in submit method');
     console.log(this.signUpForm.value.username+'/'+'/'+this.signUpForm.value.email+'/'+this.signUpForm.value.password+'/'+this.signUpForm.value.mobileNo);
-    this.auth.signupUser(this.signUpForm.value.username,this.signUpForm.value.email,this.signUpForm.value.password,this.signUpForm.value.mobileNo);
-    
+    let data=this.auth.signupUser(this.signUpForm.value.username,this.signUpForm.value.email,this.signUpForm.value.password,this.signUpForm.value.mobileNo);
+    console.log(data);
   }
   ngOnInit() {
-      this.userName = this.fb.control(' ',Validators.required);
-      this.email = this.fb.control(' ',[Validators.required]);
-      this.password =  this.fb.control(' ',[Validators.required,Validators.minLength(7)]);
-      this.mobile = this.fb.control(' ',[Validators.required,Validators.minLength(10)]);
+      this.userName = this.fb.control('',Validators.required);
+      this.email = this.fb.control('',Validators.required);
+      this.password =  this.fb.control('',[Validators.required,Validators.minLength(7)]);
+      this.mobile = this.fb.control('',[Validators.required,Validators.minLength(10)]);
 
       this.signUpForm = this.fb.group({
         username: this.userName, 

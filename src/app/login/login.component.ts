@@ -14,6 +14,7 @@ import {DataService} from '../data-service.service';
 export class LoginComponent implements OnInit {
 
 
+  Email: string;
   public myForm: FormGroup;
   emailCtrl: FormControl;
   passwordCtrl: FormControl;
@@ -23,9 +24,29 @@ export class LoginComponent implements OnInit {
  
 }
 
-onSubmit(){
+OnLogin($ev, value: any) {
+ 
   console.log(this.myForm.value.email,this.myForm.value.password);
-  this.auth.loginUser(this.myForm.value.email,this.myForm.value.password)
+ // this.auth.loginUser(this.myForm.value.email,this.myForm.value.password);
+ 
+    $ev.preventDefault();
+    for (let c in this.myForm.controls) {
+        this.myForm.controls[c].markAsTouched();
+    }
+    if (this.myForm.valid) {
+        this.auth.loginUser(value.email, value.password)
+            .then((success) => {
+                 console.log(value.email);
+                 this.Email = value.email;
+                 this.router.navigate(['home',{email:this.Email}]) ;        
+            })
+            .catch((error) => {
+               console.log(error.message);
+            })
+
+    }
+
+
 }
 ngOnInit(): void {
   this.emailCtrl =  this.fb.control('', [Validators.required,Validators.email]);

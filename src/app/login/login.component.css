@@ -1,13 +1,50 @@
 .example-form {
     min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+    max-width: 800px;
+    width: 60%;
   }
   
   .example-full-width {
-    width: 100%;
+    width: 130%;
+    margin-left: 40px;
+
   }
 
   .signup{
-    margin-left: 10px;
+    margin-left: 50px;
   }
+
+  .login{
+    margin-left: 35px;
+  }
+
+.card-design{
+  /*background-image: url('/assets/login.jpg');
+   background-repeat: no-repeat;
+   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;*/
+  margin-top: 150px;
+  width: 30%;
+  margin-left: 28rem
+}
+
+.background-image{
+  background-image: url('/assets/images.jpg');
+  background-repeat: no-repeat;
+background-size: contain;
+ 
+}
+.button-design{
+   margin-left:40px;
+  
+}
+
+.head{
+  margin-left: 160px;
+}
+
+.body-bg{
+  background: url('/assets/loginBackground.jpg') no-repeat center center fixed;
+   
+}

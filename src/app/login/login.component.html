@@ -1,29 +1,34 @@
- <mat-card layout-align="center center">
-  <h1> Login </h1>
-  <form [formGroup]="myForm" class="example-form" (ngSubmit)="onSubmit()">
-         
+<html>
+  <body clas="body-bg">
+   <div >
+       <mat-card class="card-design">
+        <h3 class="head">Login</h3>
+      <form [formGroup]="myForm" class="example-form" (ngSubmit)="OnLogin($event, myForm.value)">
+          
  
-    <mat-form-field class="example-full-width"> 
+        <mat-form-field class="example-full-width"> 
 
-        <input matInput placeholder="Email" [formControl]="emailCtrl" (ngSubmit)="OnSubmit()">
-        <mat-error *ngIf="emailCtrl.invalid">
-          Please enter a valid email address
-        </mat-error>
+            <input matInput placeholder="Email" [formControl]="emailCtrl">
+            <mat-error *ngIf="emailCtrl.invalid">
+              Please enter a valid email address
+            </mat-error>
 
-     </mat-form-field>
-     
-     <mat-form-field class="example-full-width">
-          <input matInput placeholder="password" type="password" [formControl]="passwordCtrl">
-   
-          <mat-error *ngIf="passwordCtrl.invalid">
-            Please enter a valid Password
-          </mat-error>
-     </mat-form-field>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+              <input matInput placeholder="password" type="password" [formControl]="passwordCtrl">
+      
+              <mat-error *ngIf="passwordCtrl.invalid">
+                Please enter a valid Password
+              </mat-error>
+        </mat-form-field>
   <!--   <p>Validation status: {{ myForm.status }}</p> -->
-     <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid" type="s">Login</button>
-     <button mat-raised-button color="primary" (click)="gotoSignup()" class="signup">Signup</button> 
-  
-    </form>
-
-     
-</mat-card>  
+         
+          <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid" class="login">Login</button>
+          <button mat-raised-button color="primary" (click)="gotoSignup()" class="signup">Signup</button> 
+        
+      </form>
+    </mat-card>  
+  </div>
+  </body>
+</html>

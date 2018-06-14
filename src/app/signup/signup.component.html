@@ -1,7 +1,8 @@
-    <div class="center">
-      <mat-card>
-        <h1>Sign Up</h1>
+    
+      <mat-card class="card-design">
+        <h3 class="signup">Sign Up</h3>
       <form [formGroup]="signUpForm" class="example-form" (ngSubmit)="onSubmit()">
+        
         <mat-form-field class="example-full-width"> 
 
             <input matInput placeholder="Enter Name" [formControl]="userName">
@@ -12,9 +13,10 @@
 
             <input matInput placeholder="Enter Email" [formControl]="email">
             <mat-error *ngIf="email.invalid">
-              Please enter a valid email address
+            <span><strong>Please enter a valid email address</strong></span>
+
             </mat-error>
-    
+           
          </mat-form-field>
     
          <mat-form-field class="example-full-width"> 
@@ -30,11 +32,13 @@
               <input matInput placeholder="password" type="password" [formControl]="password">
        
               <mat-error *ngIf="password.invalid">
+                
                 Please Enter Valid Password
               </mat-error>
+
          </mat-form-field>
         
-         <button mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid">SignUp</button>
-    </form>
+         <button mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid" class="signup">SignUp</button>
+      </form>
     </mat-card>
-  </div>
+
