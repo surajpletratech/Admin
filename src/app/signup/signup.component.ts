@@ -20,10 +20,25 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('in submit method');
-    console.log(this.signUpForm.value.username+'/'+'/'+this.signUpForm.value.email+'/'+this.signUpForm.value.password+'/'+this.signUpForm.value.mobileNo);
-    let data=this.auth.signupUser(this.signUpForm.value.username,this.signUpForm.value.email,this.signUpForm.value.password,this.signUpForm.value.mobileNo);
-    console.log(data);
+    //console.log('in submit method');
+    //console.log(this.signUpForm.value.username+'/'+'/'+this.signUpForm.value.email+'/'+this.signUpForm.value.password+'/'+this.signUpForm.value.mobileNo);
+      this.auth.signupUser(this.signUpForm.value.username,this.signUpForm.value.email,this.signUpForm.value.password,this.signUpForm.value.mobileNo);
+   // console.log(data);
+   this.auth.signupUser(this.signUpForm.value.email,
+    this.signUpForm.value.password,
+    this.signUpForm.value.name,
+    this.signUpForm.value.mobileNo).then(user => {
+        localStorage.setItem('uid', user.uid);
+      //  localStorage.setItem('email',user.email);
+      //  localStorage.setItem('mobile',user.mobile);
+      //  localStorage.setItem('name',user.name);
+      //  console.log(user.mobile);
+       
+    })
+    .catch((error) => {
+        console.log("Firebase failure: " + JSON.stringify(error));
+       // this.showAlert(error.message);
+    });;
   }
   ngOnInit() {
       this.userName = this.fb.control('',Validators.required);

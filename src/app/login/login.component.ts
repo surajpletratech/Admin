@@ -38,6 +38,8 @@ OnLogin($ev, value: any) {
             .then((success) => {
                  console.log(value.email);
                  this.Email = value.email;
+                let uid = value.uid;
+                console.log('uid',uid);
                  this.router.navigate(['home',{email:this.Email}]) ;        
             })
             .catch((error) => {
@@ -58,7 +60,7 @@ ngOnInit(): void {
 }
 gotoProfile(){
   console.log('in console');
- this.router.navigate(['home']);
+  this.router.navigate(['home']);
 }
 gotoSignup(){
   console.log('in signup page');

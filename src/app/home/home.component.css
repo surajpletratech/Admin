@@ -1,0 +1,23 @@
+.input-line {
+   
+    border-bottom: 4px dotted blue;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    border-bottom: navajowhite;
+  }
+  
+  .example-full-width {
+    width: 40%;
+  }
+
+  .mat-input-flex.mat-form-field-flex{
+    border: 1px solid black;
+ }
+ .mat-input{
+     border-bottom:none;
+
+ }

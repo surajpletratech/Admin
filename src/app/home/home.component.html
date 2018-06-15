@@ -1,4 +1,30 @@
-<mat-sidenav-container>
-    <mat-sidenav>Start</mat-sidenav>
-    <mat-sidenav-content>Main</mat-sidenav-content>
-</mat-sidenav-container>
+
+    <mat-card>
+        <h3>User Profile</h3>
+       <div class="example-full-width">
+            <mat-list>
+                    <mat-list-item >
+                     <div class="example-full-width">
+                         
+                      <input  matTooltip="Click to Edit" matInput [(ngModel)]="userData.email">
+                        </div>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <div class="example-full-width">
+                        <input matInput matTooltip="Click to Edit" [(ngModel)]="userData.mobile">
+                        </div>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <div class="exaple-full-width">
+                        <input matInput matTooltip="Click to Edit" [(ngModel)]="userData.username">
+                        </div>
+                    </mat-list-item>    
+            </mat-list>              
+       </div>
+       
+          <button mat-raised-button color="primary" (click)="updateProfile(userData.email,userData.mobile,userData.username)">Update Profile</button> 
+          
+</mat-card>          
+    

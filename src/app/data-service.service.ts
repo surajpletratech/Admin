@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {User} from '../app/datamodel/datamodel'; 
 import * as firebase from 'firebase';
+import {AngularFireAuth} from 'angularfire2/auth';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +17,7 @@ export class DataService {
 
     this.userCollection = afs.collection<User>("userprofile");
     this.user = firebase.auth().currentUser;
+   // console.log(this.user.uid);
   }
 
   getUserCollection(): AngularFirestoreCollection<User>{
@@ -51,23 +54,23 @@ export class DataService {
 
   signupUser(name: string,email: string,
     password: string,
-    pmobile: string) {
-
-      console.log(name+'/'+email+''+'/'+password+'/'+'/'+pmobile);
+    pmobile: string):Promise<any> {
       
     return firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(newUser => {
             console.log(newUser);
+            console.log(newUser.user.uid);
             let data: User = {
-                uid: newUser.uid,
+                uid: newUser.user.uid,
                 username: name,
                 email: email,
                 mobile: pmobile,
                 password:password
             }
-            this.userCollection.doc(newUser.uid).set(data);
+
+            this.userCollection.doc(data.uid).set(data);
             this.user = data;
             return data;
         })
@@ -78,12 +81,11 @@ export class DataService {
         
     }
 
-    loginUser(email: string,password: string){
+    loginUser(email: string,password: string):Promise<any> {
       let Email= email;
       let Password= password;
       console.log(email+'/'+password);
-      return firebase.auth().signInWithEmailAndPassword(email, password);
-      
+      return firebase.auth().signInWithEmailAndPassword(email, password); 
     }
   }
 
